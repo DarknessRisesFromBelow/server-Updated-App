@@ -5,8 +5,8 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 
 version = 0
 versionIncrementation = 1
-strings = ["as", ""]
-os.chdir("c:/Users/yair medina/Desktop/Projects/JS-Idea-Generator")
+strings = []
+os.chdir("Your projects files path here.")
 
 def GetLatestVersion():
     global strings
