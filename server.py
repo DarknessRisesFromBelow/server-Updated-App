@@ -6,18 +6,34 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 version = 0
 versionIncrementation = 1
 strings = []
+previousStringsContents = []
+stringsContent = []
 os.chdir("Your projects files path here.")
+
 
 def GetLatestVersion():
     global strings
     global version
-    if(GetAllFiles() != strings or strings == null):
+
+    GetAllFilesContents()
+    if(GetAllFiles() != strings or stringsContent != previousStringsContents):
         strings = GetAllFiles()
         version = version + versionIncrementation
         return version
+    else:
+        return 0
 
 def GetAllFiles():
     return os.listdir(".")
+
+def GetAllFilesContents():
+    global stringsContent
+    global previousStringsContents
+    previousStringsContents = stringsContent
+    stringsContent = []
+    for i in range(0, len(GetAllFiles())):
+        stringsContent.append(GetFile(GetAllFiles()[i]))
+    return stringsContent
 
 def GetFile(name):
     if(name.startswith('.') == False and "." in name):
