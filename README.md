@@ -1,2 +1,2 @@
 # server-Updated-App
- app updated in real time with server
+ server that updates a project's contetns in real time.
